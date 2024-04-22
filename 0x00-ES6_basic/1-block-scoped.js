@@ -3,8 +3,8 @@ export default function taskBlock(trueOrFalse) {
   var task2 = true;
 
   if (trueOrFalse) {
-    let task = true; // Declared in the if block scope, not the same as the outer task
-    let task2 = false; // Declared in the if block scope, not the same as the outer task2
+    let task = true; // let scopes it to the block
+    let task2 = false; 
   }
 
   return [task, task2];
