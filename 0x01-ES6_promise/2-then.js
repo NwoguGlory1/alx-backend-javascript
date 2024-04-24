@@ -8,5 +8,5 @@ export default function handleResponseFromAPI(promise) {
         body: 'success',
       };
     })
-    .catch(() => new Error('')); // Reject with an empty Error object
+    .catch(() => new Error()); // Reject with an empty Error object
 }
