@@ -19,4 +19,4 @@ export default function initializeRooms() {
 const Rooms = initializeRooms();
 
 // Output the array of ClassRoom objects
-console.log(Rooms);
+//console.log(Rooms);
