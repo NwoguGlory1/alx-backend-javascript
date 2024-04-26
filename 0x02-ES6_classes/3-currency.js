@@ -26,6 +26,6 @@ export default class Currency {
 
   // Method to display the full currency information
   displayFullCurrency() {
-    return `${this._name} (${this._code}₦)`;
+    return `${this._name} (${this._code})`;
   }
 }
