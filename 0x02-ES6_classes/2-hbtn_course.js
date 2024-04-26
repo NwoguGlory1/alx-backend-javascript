@@ -50,7 +50,7 @@ export default class HolbertonCourse {
   }
 }
 
-/* Create a new HolbertonCourse object
+// Create a new HolbertonCourse object
 try {
   const course = new HolbertonCourse('JavaScript', 12, ['Alice', 'Bob', 'Charlie']);
   console.log(course);
@@ -61,4 +61,4 @@ try {
   course.students = ['Alice', 123, 'Charlie']; // Invalid value for students
 } catch (error) {
   console.error('Error:', error.message);
-}*/
+}
