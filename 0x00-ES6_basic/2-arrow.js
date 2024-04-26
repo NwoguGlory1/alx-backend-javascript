@@ -6,3 +6,5 @@ export default function getNeighborhoodsList() {
     return this.sanFranciscoNeighborhoods;
   };
 }
+//we replaced all self with this cause arrow functions inherit 'this'
+//from their lexical scope, in this case:getNeighborhoodsList function 
