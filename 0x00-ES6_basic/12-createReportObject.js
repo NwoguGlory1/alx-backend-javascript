@@ -1,18 +1,11 @@
 export default function createReportObject(employeesList) {
-  // The allEmployees property maps to the employeesList object
-  const obj = {
-	  [allEmployees] :(
-		  getNumberOfDepartments(employeesList){
-		  }
-	return	  number of departments
-		
+  // Create an object containing all employees by department
+  const allEmployees = { ...employeesList };
 
-  // The getNumberOfDepartments method returns the number of departments
-   const getNumberOfDepartments = function() {
-    return Object.keys(employeesList).length;
-  };
+  // Define the getNumberOfDepartments method
+  const getNumberOfDepartments = (allEmployees) => Object.keys(allEmployees).length;
 
-  // Return an object with allEmployees and getNumberOfDepartments
+  // Return an object with allEmployees and getNumberOfDepartments method
   return {
     allEmployees,
     getNumberOfDepartments,
