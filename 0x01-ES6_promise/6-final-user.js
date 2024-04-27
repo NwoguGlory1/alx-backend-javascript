@@ -8,12 +8,12 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
   const uploadPromise = uploadPhoto(fileName);
 
   // Wait for all promises to settle
-  const results = await Promise.allSettled([signUpPromise, uploadPromise, ]);
+  const results = await Promise.allSettled([signUpPromise, uploadPromise]);
 
   // Returns an array after all promise is settled
-  const transformedResults = results.map(result) => ({
+  const transformedResults = results.map((result) => ({
     status: result.status,
-    value: result.status === 'fulfilled' ? result.value : result.reason
+    value: result.status === 'fulfilled' ? result.value : result.reason,
   }));
   return transformedResults;
 }
