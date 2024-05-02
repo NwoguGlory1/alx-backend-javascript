@@ -8,7 +8,7 @@ interface Student {
 const student1: Student = { firstName: "Alice", lastName: "Tobi", age: 20, location: "New York" };
 const student2: Student = { firstName: "Bob", lastName: "Adesanya", age: 22, location: "Los Angeles" };
 
-const students: studentsList: Student[] = [student1, student2];
+const studentsList: Student[] = [student1, student2];
 
 function renderStudentRow(student: Student): HTMLElement {
   const row = document.createElement("tr");
