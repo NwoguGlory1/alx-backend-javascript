@@ -13,7 +13,10 @@ process.stdin.on('data', (data) => {
   process.stdout.write(`Your name is: ${INPUT}\n`);
 
   // End the input stream
-  process.stdin.end();
+  process.stdin.pause();
+});
+process.stdin.on('error', (err) => {
+  console.error(err);
 });
 
 // Handle 'end' event to display closing message
