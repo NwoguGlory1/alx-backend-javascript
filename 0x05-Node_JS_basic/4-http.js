@@ -2,7 +2,7 @@
 const http = require('http');
 
 // Create the server
-const server = http.createServer((req, res) => {
+const app = http.createServer((req, res) => {
   res.statusCode = 200;
   // Set the Content-Type header to text/plain
   res.setHeader('Content-Type', 'text/plain');
@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
   res.end('Hello Holberton School!\n');
 });
 
-server.listen(1245, 'localhost', () => {
+app.listen(1245, 'localhost', () => {
   console.log('Server running at http://localhost:1245/');
 });
-module.exports = server;
+module.exports = app;
