@@ -1,33 +1,36 @@
-// Import the http module and the countStudents function
 const http = require('http');
+
+const args = process.argv.slice(2);
 const countStudents = require('./3-read_file_async');
 
-// Create the server
-const app = http.createServer((req, res) => {
-  res.statusCode = 200; // Set the status code to 200 (OK)
-  const url = req.url; // Get the URL path
-  res.setHeader('Content-Type', 'text/plain'); // Set the Content-Type header to text/plain
+const DATABASE = args[0];
+
+const hostname = '127.0.0.1';
+const port = 1245;
+
+const app = http.createServer(async (req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+
+  const { url } = req;
 
   if (url === '/') {
-    // If the request is for the root path, respond with a greeting
-    res.end('Hello Holberton School!');
+    res.write('Hello Holberton School!');
   } else if (url === '/students') {
-    const database = process.argv[2]; // Get the database file path from command line arguments
-
-    // Call countStudents and handle the returned promise
-    countStudents(database).then((response) => {
-      res.write('This is the list of our students\n'); // Write the initial message
-      res.end(response.join('\n')); // Write the student list and end the response
-    }).catch((error) => {
-      res.end(`Error: ${error.message}`); // Write the error message and end the response
-    });
+    res.write('This is the list of our students\n');
+    try {
+      const students = await countStudents(DATABASE);
+      res.end(`${students.join('\n')}`);
+    } catch (error) {
+      res.end(error.message);
+    }
   }
+  res.statusCode = 404;
+  res.end();
 });
 
-// Start the server and listen on port 1245
-app.listen(1245, 'localhost', () => {
-  console.log('Server running at http://localhost:1245/');
+app.listen(port, hostname, () => {
+  //   console.log(`Server running at http://${hostname}:${port}/`);
 });
 
-// Export the app module
 module.exports = app;
