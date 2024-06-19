@@ -5,7 +5,7 @@ const countStudents = require('./3-read_file_async');
 // Create the server
 const app = http.createServer((req, res) => {
   res.statusCode = 200; // Set the status code to 200 (OK)
-  const url = req.url; // Get the URL path
+  const { url } = req; // Get the URL path using object destructuring
   res.setHeader('Content-Type', 'text/plain'); // Set the Content-Type header to text/plain
 
   if (url === '/') {
