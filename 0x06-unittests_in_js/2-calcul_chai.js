@@ -1,5 +1,3 @@
-// 1-calcul.js
-
 function calculateNumber(type, a, b) {
   if (typeof type !== 'string') {
     throw new Error('Type must be a string');
