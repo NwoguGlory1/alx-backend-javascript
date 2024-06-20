@@ -20,7 +20,7 @@ describe('sendPaymentRequestToApi', function() {
     sendPaymentRequestToApi(100, 20);
 
     // Verify the stub was called with the expected arguments
-    sinon.assert.calledWith(calculateNumberStub, 'SUM', 100, 20);
+    expect(calculateNumberStub.calledWithExactly('SUM', 100, 20).to.be.true;
 
     // Verify that console.log was called with the correct message
     expect(consoleSpy.calledWithExactly('The total is: 10')).to.be.true;
