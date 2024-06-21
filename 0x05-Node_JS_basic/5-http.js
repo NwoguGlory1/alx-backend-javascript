@@ -10,7 +10,7 @@ const app = http.createServer((req, res) => {
   // Set the Content-Type header to text/plain
   res.setHeader('Content-Type', 'text/plain');
 
-  const url = req.url;
+  const { url } = req;
 
   if (url === '/') {
     res.end('Hello Holberton School!');
