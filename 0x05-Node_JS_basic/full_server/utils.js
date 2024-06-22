@@ -1,19 +1,12 @@
-const fs = require('fs');
+const fs = require('fs').promises;
 
-function readDatabase(filepath) {
-  return fs.readFile(filepath, 'utf8')
-    .then((data) => {
-      const database = JSON.parse(data);
-      const students = {};
-      database.forEach((student) => {
-        if (!students[student.field]) {
-          students[student.field] = [];
-        }
-        students[student.field].push(student.firstname);
-      });
-      return students;
-    })
-    .catch((error) => {
-      throw new Error(`Error reading database: ${error.message}`);
-    });
-}
+const readDatabase = async (filePath) => {
+  try {
+    const data = await fs.readFile(filePath, 'utf-8');
+    // Process the CSV data and return an object of arrays of first names per field
+  } catch (error) {
+    throw new Error('Cannot load the database');
+  }
+};
+
+module.exports = readDatabase;
